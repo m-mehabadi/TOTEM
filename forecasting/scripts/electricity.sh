@@ -1,5 +1,8 @@
+# print the output of which python is being used
+echo "Using python from $(which python)"
+
 seq_len=96
-root_path_name=/add/your/own/path
+root_path_name="C:\Users\Moher\Personal\PhD\Thesis\projects\Time Series Analysis\TOTEM\forecasting\electricity
 data_path_name=electricity.csv
 data_name=custom
 random_seed=2021
