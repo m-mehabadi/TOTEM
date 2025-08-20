@@ -1,0 +1,78 @@
+Using python from /home/sadjad/TimeSeries-Generative-Modeling-RnD/_pyenv/bin/python
+custom 321
+CHECK make sure you have the right enc_in
+Weather : 21
+Electricity : 321
+Traffic : 862
+ETTm1, m2, h1, h2 : 7
+Args in experiment:
+Namespace(random_seed=2021, data='custom', root_path='/home/sadjad/TimeSeries-Generative-Modeling-RnD/TOTEM/forecasting/electricity', data_path='electricity.csv', features='M', target='OT', freq='h', seq_len=96, label_len=0, pred_len=96, enc_in=321, embed='timeF', num_workers=10, batch_size=2048, use_gpu=True, gpu=0, use_multi_gpu=False, devices='0,1,2,3', test_flop=False, save_path='forecasting/data/electricity')
+train 18221
+val 2537
+test 5165
+got loaders starting revin
+ERROR: Unexpected bus error encountered in worker. This might be caused by insufficient shared memory (shm).
+ERROR: Unexpected bus error encountered in worker. This might be caused by insufficient shared memory (shm).
+ERROR: Unexpected bus error encountered in worker. This might be caused by insufficient shared memory (shm).
+ERROR: Unexpected bus error encountered in worker. This might be caused by insufficient shared memory (shm).
+ERROR: Unexpected bus error encountered in worker. This might be caused by insufficient shared memory (shm).
+ERROR: Unexpected bus error encountered in worker. This might be caused by insufficient shared memory (shm).
+ERROR: Unexpected bus error encountered in worker. This might be caused by insufficient shared memory (shm).
+ERROR: Unexpected bus error encountered in worker. This might be caused by insufficient shared memory (shm).
+Traceback (most recent call last):
+  File "/home/sadjad/TimeSeries-Generative-Modeling-RnD/_pyenv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1132, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/usr/lib/python3.10/multiprocessing/queues.py", line 113, in get
+    if not self._poll(timeout):
+  File "/usr/lib/python3.10/multiprocessing/connection.py", line 257, in poll
+    return self._poll(timeout)
+  File "/usr/lib/python3.10/multiprocessing/connection.py", line 424, in _poll
+    r = wait([self], timeout)
+  File "/usr/lib/python3.10/multiprocessing/connection.py", line 931, in wait
+    ready = selector.select(timeout)
+  File "/usr/lib/python3.10/selectors.py", line 416, in select
+    fd_event_list = self._selector.poll(timeout)
+  File "/home/sadjad/TimeSeries-Generative-Modeling-RnD/_pyenv/lib/python3.10/site-packages/torch/utils/data/_utils/signal_handling.py", line 66, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 5243) is killed by signal: Bus error. It is possible that dataloader's workers are out of shared memory. Please try to raise your shared memory limit.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sadjad/TimeSeries-Generative-Modeling-RnD/TOTEM/forecasting/save_revin_data.py", line 152, in <module>
+    exp.extract_data()
+  File "/home/sadjad/TimeSeries-Generative-Modeling-RnD/TOTEM/forecasting/save_revin_data.py", line 50, in extract_data
+    x_train_in_revin_space_arr, y_train_in_revin_space_arr = self.one_loop(train_loader)
+  File "/home/sadjad/TimeSeries-Generative-Modeling-RnD/TOTEM/forecasting/save_revin_data.py", line 27, in one_loop
+    for i, (batch_x, batch_y, batch_x_mark, batch_y_mark) in enumerate(loader):
+  File "/home/sadjad/TimeSeries-Generative-Modeling-RnD/_pyenv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/sadjad/TimeSeries-Generative-Modeling-RnD/_pyenv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1328, in _next_data
+    idx, data = self._get_data()
+  File "/home/sadjad/TimeSeries-Generative-Modeling-RnD/_pyenv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1294, in _get_data
+    success, data = self._try_get_data()
+  File "/home/sadjad/TimeSeries-Generative-Modeling-RnD/_pyenv/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1145, in _try_get_data
+    raise RuntimeError(f'DataLoader worker (pid(s) {pids_str}) exited unexpectedly') from e
+RuntimeError: DataLoader worker (pid(s) 5243) exited unexpectedly
+^CException ignored in atexit callback: <function _exit_function at 0x7fdaafa5d900>
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/multiprocessing/util.py", line 357, in _exit_function
+    p.join()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 43, in wait
+    return self.poll(os.WNOHANG if timeout == 0.0 else 0)
+  File "/usr/lib/python3.10/multiprocessing/popen_fork.py", line 27, in poll
+    pid, sts = os.waitpid(self.pid, flag)
+KeyboardInterrupt: 
+^CTraceback (most recent call last):
+  File "/home/sadjad/TimeSeries-Generative-Modeling-RnD/TOTEM/forecasting/train_vqvae.py", line 9, in <module>
+    import torch
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "/home/sadjad/TimeSeries-Generative-Modeling-RnD/_pyenv/lib/python3.10/site-packages/comet_ml/monkey_patching.py", line 77, in exec_module
+    self.loader.exec_module(module)
+  File "/home/sadjad/TimeSeries-Generative-Modeling-RnD/_pyenv/lib/python3.10/site-packages/torch/__init__.py", line 235, in <module>
+    from torch._C import *  # noqa: F403
+KeyboardInterrupt
