@@ -46,3 +46,6 @@ Backup[ ]of[ ]*.pages/
 Backup[ ]of[ ]*.key/
 Backup[ ]of[ ]*.numbers
 /TOTEM_data_and_pretrained_tokenizers-20250228T045842Z-001.zip
+/forecasting/data/electricity
+/forecasting/results
+/forecasting/saved_models
