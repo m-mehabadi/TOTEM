@@ -49,3 +49,7 @@ Backup[ ]of[ ]*.numbers
 /forecasting/data/electricity
 /forecasting/results
 /forecasting/saved_models
+
+# Python
+**/__pycache__/
+*.py[cod]
